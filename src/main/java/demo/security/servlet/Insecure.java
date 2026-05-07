@@ -73,9 +73,14 @@ public class Insecure {
     // Empty method just for testing
   }
 
+  public void anotherProcessParam(String input) {
+    // Empty method just for testing
+  }
+
   public void doSomething() {
     String myInput = getInput("Olivier"); // Get data from a source
     processParam(myInput);
+    anotherProcessParam(myInput);
     storeData(myInput);                   // store data w/o sanitizing --> Injection vulnerability 
   }
 
