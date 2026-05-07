@@ -47,9 +47,8 @@ jobs:
       env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      run: |
-        mvn -B test -Pcoverage verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-        -Dsonar.maven.scanAll=True
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=PersonalSonar_demo-java-security_2635a9e5-1c4d-4d6b-84f8-d0742624d602 -Dsonar.projectName='demo-java-security'
+
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
