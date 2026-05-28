@@ -37,4 +37,10 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=PersonalSonar_demo-java-security_2635a9e5-1c4d-4d6b-84f8-d0742624d602 -Dsonar.projectName='demo-java-security'
+          SONAR_PROJECT_NAME: ${{ vars.SONAR_PROJECT_NAME }}
+          SONAR_PROJECT_KEY: ${{ vars.SONAR_PROJECT_KEY }}
+        run: |
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          -Dsonar.maven.scanAll=True \
+          -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+          -Dsonar.projectName=$SONAR_PROJECT_NAME
